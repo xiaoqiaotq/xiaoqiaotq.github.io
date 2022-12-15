@@ -20,3 +20,21 @@ menu:
 #      name: 主页
 #      url: /posts/home/
 #      weight: 40
+
+params:
+  # home-info mode
+  homeInfoParams:
+    Title: "Hi there \U0001F44B"
+    Content: Welcome to my blog
+  socialIcons:
+    - name: github
+      url: "https://github.com/xiaoqiaotq"
+
+  assets:
+    # disableHLJS: true # to disable highlight.js
+    # disableFingerprinting: true
+    favicon: "/64*64.ico"
+    favicon16x16: "/16*16.ico"
+    favicon32x32: "/32*32.ico"
+    apple_touch_icon: "/64*64.ico"
+    safari_pinned_tab: "/64*64.ico"
