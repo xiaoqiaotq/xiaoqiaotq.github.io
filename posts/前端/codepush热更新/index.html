@@ -1,0 +1,200 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>codepush热更新 | xiaoqiaotq</title><meta name=keywords content="Android,Cordova"><meta name=description content="codepush是微软一套热更新系统，托管部署资源如 react-native , cordova 等 CodePush-CLI 是热更新客户端工具，目前微软已废弃，建议使用AppCenter-CLI
+Cordova 限制（只能更新静态资源，原生code不能更新） Any product changes which touch native code (e.g. upgrading Cordova versions, adding a new plugin) cannot be distributed via CodePush, and therefore, must be updated via the appropriate store(s).
+MainActivity 触发 webview 加载 file:///android_asset/www/index.html
+code-push-cli 常用命令 #安装 最新为3.0 我们用2 yarn global add code-push-cli@2 code-push -h # 会打开浏览器 https://appcenter.ms/cli-login?hostname=CISZ03-0820 弹出token code-push login # admin 123456 code-push login https://code-push.xx.top/ code-push whoami # 创建app 默认创建两个deployment Production, Staging #code-push app add <appName> <os> <platform> code-push app add sankyu-test android cordova # 查看应用 code-push app ls code-push deployment ls sankyu-test -k # 查看deployment #code-push deployment history <appName> <deploymentName> [options] code-push deployment history sankyu-test Staging code-push deployment history sankyu-test Production # 发布 版本以config."><meta name=author content><link rel=canonical href=https://xiaoqiaotq.github.io/posts/%E5%89%8D%E7%AB%AF/codepush%E7%83%AD%E6%9B%B4%E6%96%B0/><link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style><script defer crossorigin=anonymous src=/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js integrity="sha256-uVus3DnjejMqn4g7Hni+Srwf3KK8HyZB9V4809q9TWE=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://xiaoqiaotq.github.io/64%2A64.ico><link rel=icon type=image/png sizes=16x16 href=https://xiaoqiaotq.github.io/16%2A16.ico><link rel=icon type=image/png sizes=32x32 href=https://xiaoqiaotq.github.io/32%2A32.ico><link rel=apple-touch-icon href=https://xiaoqiaotq.github.io/64%2A64.ico><link rel=mask-icon href=https://xiaoqiaotq.github.io/64%2A64.ico><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><meta name=generator content="Hugo 0.110.0"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="codepush热更新"><meta property="og:description" content="codepush是微软一套热更新系统，托管部署资源如 react-native , cordova 等 CodePush-CLI 是热更新客户端工具，目前微软已废弃，建议使用AppCenter-CLI
+Cordova 限制（只能更新静态资源，原生code不能更新） Any product changes which touch native code (e.g. upgrading Cordova versions, adding a new plugin) cannot be distributed via CodePush, and therefore, must be updated via the appropriate store(s).
+MainActivity 触发 webview 加载 file:///android_asset/www/index.html
+code-push-cli 常用命令 #安装 最新为3.0 我们用2 yarn global add code-push-cli@2 code-push -h # 会打开浏览器 https://appcenter.ms/cli-login?hostname=CISZ03-0820 弹出token code-push login # admin 123456 code-push login https://code-push.xx.top/ code-push whoami # 创建app 默认创建两个deployment Production, Staging #code-push app add <appName> <os> <platform> code-push app add sankyu-test android cordova # 查看应用 code-push app ls code-push deployment ls sankyu-test -k # 查看deployment #code-push deployment history <appName> <deploymentName> [options] code-push deployment history sankyu-test Staging code-push deployment history sankyu-test Production # 发布 版本以config."><meta property="og:type" content="article"><meta property="og:url" content="https://xiaoqiaotq.github.io/posts/%E5%89%8D%E7%AB%AF/codepush%E7%83%AD%E6%9B%B4%E6%96%B0/"><meta property="og:image" content="https://cn.bing.com/th?id=OHR.YearRabbit_ZH-CN2751166096_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-01-11T22:04:16+08:00"><meta property="article:modified_time" content="2023-01-11T22:04:16+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://cn.bing.com/th?id=OHR.YearRabbit_ZH-CN2751166096_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp"><meta name=twitter:title content="codepush热更新"><meta name=twitter:description content="codepush是微软一套热更新系统，托管部署资源如 react-native , cordova 等 CodePush-CLI 是热更新客户端工具，目前微软已废弃，建议使用AppCenter-CLI
+Cordova 限制（只能更新静态资源，原生code不能更新） Any product changes which touch native code (e.g. upgrading Cordova versions, adding a new plugin) cannot be distributed via CodePush, and therefore, must be updated via the appropriate store(s).
+MainActivity 触发 webview 加载 file:///android_asset/www/index.html
+code-push-cli 常用命令 #安装 最新为3.0 我们用2 yarn global add code-push-cli@2 code-push -h # 会打开浏览器 https://appcenter.ms/cli-login?hostname=CISZ03-0820 弹出token code-push login # admin 123456 code-push login https://code-push.xx.top/ code-push whoami # 创建app 默认创建两个deployment Production, Staging #code-push app add <appName> <os> <platform> code-push app add sankyu-test android cordova # 查看应用 code-push app ls code-push deployment ls sankyu-test -k # 查看deployment #code-push deployment history <appName> <deploymentName> [options] code-push deployment history sankyu-test Staging code-push deployment history sankyu-test Production # 发布 版本以config."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://xiaoqiaotq.github.io/posts/"},{"@type":"ListItem","position":3,"name":"codepush热更新","item":"https://xiaoqiaotq.github.io/posts/%E5%89%8D%E7%AB%AF/codepush%E7%83%AD%E6%9B%B4%E6%96%B0/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"codepush热更新","name":"codepush热更新","description":"codepush是微软一套热更新系统，托管部署资源如 react-native , cordova 等 CodePush-CLI 是热更新客户端工具，目前微软已废弃，建议使用AppCenter-CLI\nCordova 限制（只能更新静态资源，原生code不能更新） Any product changes which touch native code (e.g. upgrading Cordova versions, adding a new plugin) cannot be distributed via CodePush, and therefore, must be updated via the appropriate store(s).\nMainActivity 触发 webview 加载 file:///android_asset/www/index.html\ncode-push-cli 常用命令 #安装 最新为3.0 我们用2 yarn global add code-push-cli@2 code-push -h # 会打开浏览器 https://appcenter.ms/cli-login?hostname=CISZ03-0820 弹出token code-push login # admin 123456 code-push login https://code-push.xx.top/ code-push whoami # 创建app 默认创建两个deployment Production, Staging #code-push app add \u0026lt;appName\u0026gt; \u0026lt;os\u0026gt; \u0026lt;platform\u0026gt; code-push app add sankyu-test android cordova # 查看应用 code-push app ls code-push deployment ls sankyu-test -k # 查看deployment #code-push deployment history \u0026lt;appName\u0026gt; \u0026lt;deploymentName\u0026gt; [options] code-push deployment history sankyu-test Staging code-push deployment history sankyu-test Production # 发布 版本以config.","keywords":["Android","Cordova"],"articleBody":"codepush是微软一套热更新系统，托管部署资源如 react-native , cordova 等 CodePush-CLI 是热更新客户端工具，目前微软已废弃，建议使用AppCenter-CLI\nCordova 限制（只能更新静态资源，原生code不能更新） Any product changes which touch native code (e.g. upgrading Cordova versions, adding a new plugin) cannot be distributed via CodePush, and therefore, must be updated via the appropriate store(s).\nMainActivity 触发 webview 加载 file:///android_asset/www/index.html\ncode-push-cli 常用命令 #安装 最新为3.0 我们用2 yarn global add code-push-cli@2 code-push -h # 会打开浏览器 https://appcenter.ms/cli-login?hostname=CISZ03-0820 弹出token code-push login # admin 123456 code-push login https://code-push.xx.top/ code-push whoami # 创建app 默认创建两个deployment Production, Staging #code-push app add code-push app add sankyu-test android cordova # 查看应用 code-push app ls code-push deployment ls sankyu-test -k # 查看deployment #code-push deployment history [options] code-push deployment history sankyu-test Staging code-push deployment history sankyu-test Production # 发布 版本以config.xml version 为准,可以手动指定 # code-push release-cordova [options] code-push release-cordova sankyu-test android -d Staging -t 0.0.2 # 发布 ^0.0.1 quasar build -m android code-push release-cordova sankyu-test android -d Production -t \"^0.0.1\" 部署code-push-server https://github.com/lisong/code-push-server/blob/master/docker/README.md\ngit clone https://github.com/lisong/code-push-server.git cd code-push-server/docker vim docker-compose.yml # 替换ip :%s/YOU_MACHINE_IP/your ip/g 修改镜像为 panshx/code-push-server:latest 修改config.js中tokenSecret 可以打开连接https://www.grc.com/passwords.htm获取 63 random alpha-numeric characters类型的随机生成数作为密钥 可选修改存储 config.js common.storageType: 'oss' oss: { accessKeyId: \"\", secretAccessKey: \"\", endpoint: \"https://oss-cn-shanghai.aliyuncs.com\", bucketName: \"bucketName\", prefix: \"\", // Key prefix in object key downloadUrl: \"https://bucket.oss-cn-shanghai.aliyuncs.com/\", // binary files download host address. }, #启动 1. 启动redis 有就复用，没有单独起 docker run --name redis -v redisdata:/data -p 6379:6379 -d redis:4.0.11-alpine 2. 启动mysql，导入sql，会自动创建数据库，表 ./sql/codepush-all.sql:/docker-entrypoint-initdb.d/codepush-all.sql 3. 启动服务 docker-compose up // docker stack deploy -c docker-compose.yml code-push-server # 测试连通性 admin 123456 默认登录密码 curl -I http://your ip:3000/ docker-compose.yml 改写 version: \"3.7\" services: server: image: panshx/code-push-server:latest volumes: - data-storage:/data/storage - data-tmp:/data/tmp - ./config.js:/config.js environment: DOWNLOAD_URL: \"http://YOU_MACHINE_IP:3000/download\" MYSQL_HOST: \"10.0.4.3\" MYSQL_PORT: \"3306\" MYSQL_USERNAME: \"codepush\" MYSQL_PASSWORD: \"123456\" MYSQL_DATABASE: \"codepush\" STORAGE_DIR: \"/data/storage\" DATA_DIR: \"/data/tmp\" NODE_ENV: \"production\" CONFIG_FILE: \"/config.js\" REDIS_HOST: \"10.0.4.3\" REDIS_PORT: \"6379\" VIRTUAL_HOST: httpbin.xiaoqiaotq.top LETSENCRYPT_HOST: httpbin.xiaoqiaotq.top VIRTUAL_PORT: 3000 deploy: resources: limits: cpus: \"2\" memory: 1000M restart_policy: condition: on-failure ports: - \"3000:3000\" networks: - servernet networks: servernet: volumes: data-storage: data-tmp: 客户端接入 https://github.com/Microsoft/cordova-plugin-code-push\nhttps://www.itguliang.com/post/bdc17ac0.html\ncordova plugin add cordova-plugin-code-push@latest ### 修改config.xml ### 代码接入 codePush.sync(); 抓包 发版 code-push release-cordova wms-test android -d Staging -t 1.1.1\nPOST /apps/wms-test/deployments/Staging/release HTTP/1.1 Host: localhost:3000 Accept-Encoding: gzip, deflate User-Agent: node-superagent/3.8.3 X-CodePush-CLI-Version: 2.1.9 Accept: application/vnd.code-push.v2+json Authorization: Bearer tLDLTtCUSRYrO4P2BntrzPktkrgq4ksvOXqog X-CodePush-SDK-Version: 2.0.6 content-type: multipart/form-data; boundary=--------------------------641068731626182805276171 Content-Length: 931966 Connection: close ----------------------------641068731626182805276171 Content-Disposition: form-data; name=\"package\"; filename=\"m6Xk8At6CX1ZRtH.zip\" Content-Type: application/zip PK..........GV............ ...www/.DS_Store..A .@......6.l....H...D. ...w..:Z..W.\u0026A.......{..f.\u003c.Xun6...#...%.3\".l~..=v]..}......o.8...B.!.........!..!.|(...... .E9.......q ..9.....!.....0~........~.B,.4.....d./.X0.m.. ----------------------------641068731626182805276171 Content-Disposition: form-data; name=\"packageInfo\" {\"description\":\"\",\"isDisabled\":false,\"isMandatory\":false,\"rollout\":100,\"appVersion\":\"1.1.1\"} ----------------------------641068731626182805276171-- HTTP/1.1 200 OK X-DNS-Prefetch-Control: off X-Frame-Options: SAMEORIGIN Strict-Transport-Security: max-age=15552000; includeSubDomains X-Download-Options: noopen X-Content-Type-Options: nosniff X-XSS-Protection: 1; mode=block Access-Control-Allow-Origin: * Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization, X-CodePush-Plugin-Version, X-CodePush-Plugin-Name, X-CodePush-SDK-Version Access-Control-Allow-Methods: PUT,POST,GET,PATCH,DELETE,OPTIONS Content-Type: text/html; charset=utf-8 Content-Length: 18 ETag: W/\"12-VQcfpGWTIWZxIW5CJEu508IDMlk\" Date: Tue, 07 Feb 2023 08:35:40 GMT Connection: close {\"msg\": \"succeed\"} 代码更新检查 codepush.sync()调用 http://localhost:3000/v0.1/public/codepush/update_check?deployment_key=K4TwqkWsAnkWjBIHaOijClKrMygF4ksvOXqog\u0026app_version=1.3.4\u0026package_hash=f7d21597ae65922062c71f7bac4fc7deef60c7775b82ede0f004f8a336dc73d9 # 有更新返回示例(返回最新版本) { \"update_info\":{ \"download_url\":\"https://aaa.oss-cn-shanghai.aliyuncs.com//FnsxIg4pOx_TAzuvnlognY0qXpsS\", \"description\":\"\", \"is_available\":true, \"is_disabled\":false, \"target_binary_range\":\"1.0.0\", \"label\":\"v6\", \"package_hash\":\"827ec4301e2fbc59e297ac05ed26465e5449492d0391219dbc6bcb6f3c2c6e44\", \"package_size\":931523, \"should_run_binary_version\":false, \"update_app_version\":false, \"is_mandatory\":false } } # hash一致，返回空的update_info {\"update_info\":{\"download_url\":\"\",\"description\":\"\",\"is_available\":false,\"is_disabled\":true,\"target_binary_range\":\"\",\"label\":\"\",\"package_hash\":\"\",\"package_size\":0,\"should_run_binary_version\":false,\"update_app_version\":false,\"is_mandatory\":false}} 困扰的问题 app_version不会变，除非在config.xml指定新版version，此时需要重新打apk包，热更新就失去价值了，热更新只会更新label（v2 数字累加）\n源码分析 参考： https://www.itguliang.com/post/bdc17ac0.html https://github.com/lisong/code-push-server ","wordCount":"462","inLanguage":"en","image":"https://cn.bing.com/th?id=OHR.YearRabbit_ZH-CN2751166096_1920x1080.jpg\u0026rf=LaDigue_1920x1080.jpg\u0026pid=hp","datePublished":"2023-01-11T22:04:16+08:00","dateModified":"2023-01-11T22:04:16+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiaoqiaotq.github.io/posts/%E5%89%8D%E7%AB%AF/codepush%E7%83%AD%E6%9B%B4%E6%96%B0/"},"publisher":{"@type":"Organization","name":"xiaoqiaotq","logo":{"@type":"ImageObject","url":"https://xiaoqiaotq.github.io/64%2A64.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://xiaoqiaotq.github.io accesskey=h title="xiaoqiaotq (Alt + H)">xiaoqiaotq</a>
+<span class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></span></div><ul id=menu><li><a href=https://xiaoqiaotq.github.io/archives title=总览><span>总览</span></a></li><li><a href=https://xiaoqiaotq.github.io/search/ title=搜索><span>搜索</span></a></li><li><a href=https://xiaoqiaotq.github.io/tags/ title=标签><span>标签</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class=post-title>codepush热更新</h1><div class=post-meta><span title='2023-01-11 22:04:16 +0800 +0800'>January 11, 2023</span></div></header><div class=post-content><p>codepush是微软一套热更新系统，托管部署资源如 react-native , cordova 等
+CodePush-CLI 是热更新客户端工具，目前微软已废弃，建议使用AppCenter-CLI</p><h4 id=cordova-限制只能更新静态资源原生code不能更新>Cordova 限制（只能更新静态资源，原生code不能更新）<a hidden class=anchor aria-hidden=true href=#cordova-限制只能更新静态资源原生code不能更新>#</a></h4><p>Any product changes which touch native code (e.g. upgrading Cordova versions, adding a new plugin) cannot be distributed via CodePush, and therefore, must be updated via the appropriate store(s).</p><p>MainActivity 触发 webview 加载 file:///android_asset/www/index.html</p><h3 id=code-push-cli-常用命令>code-push-cli 常用命令<a hidden class=anchor aria-hidden=true href=#code-push-cli-常用命令>#</a></h3><pre tabindex=0><code>#安装 最新为3.0 我们用2
+yarn global add code-push-cli@2
+
+code-push -h
+# 会打开浏览器 https://appcenter.ms/cli-login?hostname=CISZ03-0820 弹出token 
+code-push login
+# admin 123456
+code-push login https://code-push.xx.top/
+
+
+code-push whoami
+
+# 创建app 默认创建两个deployment Production, Staging
+#code-push app add &lt;appName&gt; &lt;os&gt; &lt;platform&gt;
+ code-push app add sankyu-test android cordova
+
+# 查看应用
+code-push app ls
+code-push deployment ls sankyu-test -k
+# 查看deployment
+#code-push deployment history &lt;appName&gt; &lt;deploymentName&gt; [options]
+code-push deployment history sankyu-test Staging
+code-push deployment history sankyu-test Production
+
+# 发布 版本以config.xml version 为准,可以手动指定
+# code-push release-cordova &lt;appName&gt; &lt;platform&gt; [options]
+code-push release-cordova sankyu-test android  -d Staging -t 0.0.2
+# 发布 ^0.0.1
+quasar build -m android
+code-push release-cordova sankyu-test android  -d Production -t  &#34;^0.0.1&#34;
+</code></pre><p><div class=post-img-view><a data-fancybox=gallery href=https://i.loli.net/2021/11/29/i8PzgEbM6HCtmSF.png><img src=https://i.loli.net/2021/11/29/i8PzgEbM6HCtmSF.png alt=1638165009_1_.jpg></a></div></p><p><div class=post-img-view><a data-fancybox=gallery href=https://i.loli.net/2021/11/29/tWUB1RJeSybKp8h.jpg><img src=https://i.loli.net/2021/11/29/tWUB1RJeSybKp8h.jpg alt=Dingtalk_20211129161908.jpg></a></div></p><h3 id=部署code-push-server>部署code-push-server<a hidden class=anchor aria-hidden=true href=#部署code-push-server>#</a></h3><p><a href=https://github.com/lisong/code-push-server/blob/master/docker/README.md>https://github.com/lisong/code-push-server/blob/master/docker/README.md</a></p><pre><code>git clone https://github.com/lisong/code-push-server.git
+cd code-push-server/docker
+
+
+vim docker-compose.yml
+# 替换ip
+:%s/YOU_MACHINE_IP/your ip/g
+
+修改镜像为  panshx/code-push-server:latest
+
+
+修改config.js中tokenSecret
+可以打开连接https://www.grc.com/passwords.htm获取 63 random alpha-numeric characters类型的随机生成数作为密钥
+
+可选修改存储 config.js
+common.storageType: 'oss'
+  oss: {
+    accessKeyId: &quot;&quot;,
+    secretAccessKey: &quot;&quot;,
+    endpoint: &quot;https://oss-cn-shanghai.aliyuncs.com&quot;,
+    bucketName: &quot;bucketName&quot;,
+    prefix: &quot;&quot;, // Key prefix in object key
+    downloadUrl: &quot;https://bucket.oss-cn-shanghai.aliyuncs.com/&quot;, // binary files download host address.
+  },
+
+
+#启动
+1. 启动redis 有就复用，没有单独起
+docker run --name redis -v redisdata:/data -p 6379:6379 -d redis:4.0.11-alpine
+2. 启动mysql，导入sql，会自动创建数据库，表
+  ./sql/codepush-all.sql:/docker-entrypoint-initdb.d/codepush-all.sql
+3. 启动服务
+docker-compose up
+// docker stack deploy -c docker-compose.yml code-push-server
+
+# 测试连通性 admin 123456 默认登录密码
+curl -I http://your ip:3000/
+</code></pre><h4 id=docker-composeyml-改写>docker-compose.yml 改写<a hidden class=anchor aria-hidden=true href=#docker-composeyml-改写>#</a></h4><pre><code>version: &quot;3.7&quot;
+services:
+  server:
+    image: panshx/code-push-server:latest
+    volumes:
+      - data-storage:/data/storage
+      - data-tmp:/data/tmp
+      - ./config.js:/config.js
+    environment:
+      DOWNLOAD_URL: &quot;http://YOU_MACHINE_IP:3000/download&quot;
+      MYSQL_HOST: &quot;10.0.4.3&quot;
+      MYSQL_PORT: &quot;3306&quot;
+      MYSQL_USERNAME: &quot;codepush&quot;
+      MYSQL_PASSWORD: &quot;123456&quot;
+      MYSQL_DATABASE: &quot;codepush&quot;
+      STORAGE_DIR: &quot;/data/storage&quot;
+      DATA_DIR: &quot;/data/tmp&quot;
+      NODE_ENV: &quot;production&quot;
+      CONFIG_FILE: &quot;/config.js&quot;
+      REDIS_HOST: &quot;10.0.4.3&quot;
+      REDIS_PORT: &quot;6379&quot;
+      VIRTUAL_HOST: httpbin.xiaoqiaotq.top
+      LETSENCRYPT_HOST: httpbin.xiaoqiaotq.top
+      VIRTUAL_PORT: 3000
+    deploy:
+      resources:
+        limits:
+          cpus: &quot;2&quot;
+          memory: 1000M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - &quot;3000:3000&quot;
+    networks:
+      - servernet
+networks:
+  servernet:
+volumes:
+  data-storage:
+  data-tmp:
+</code></pre><h3 id=客户端接入>客户端接入<a hidden class=anchor aria-hidden=true href=#客户端接入>#</a></h3><p><a href=https://github.com/Microsoft/cordova-plugin-code-push>https://github.com/Microsoft/cordova-plugin-code-push</a></p><p><a href=https://www.itguliang.com/post/bdc17ac0.html>https://www.itguliang.com/post/bdc17ac0.html</a></p><pre tabindex=0><code>cordova plugin add cordova-plugin-code-push@latest
+
+### 修改config.xml
+&lt;platform name=&#34;android&#34;&gt;
+    &lt;allow-intent href=&#34;market:*&#34; /&gt;
+    &lt;preference name=&#34;CodePushDeploymentKey&#34; value=&#34;nVHPr6asLSusnWoLBNCSktk9FWbiqLF160UDgcc&#34; /&gt;
+    &lt;preference name=&#34;CodePushServerUrl&#34; value=&#34;https://code-push.aa.top/&#34; /&gt;
+&lt;/platform&gt;
+
+### 代码接入
+codePush.sync();
+</code></pre><h4 id=抓包>抓包<a hidden class=anchor aria-hidden=true href=#抓包>#</a></h4><h5 id=发版>发版<a hidden class=anchor aria-hidden=true href=#发版>#</a></h5><p><code>code-push release-cordova wms-test android -d Staging -t 1.1.1</code></p><pre tabindex=0><code>POST /apps/wms-test/deployments/Staging/release HTTP/1.1
+Host: localhost:3000
+Accept-Encoding: gzip, deflate
+User-Agent: node-superagent/3.8.3
+X-CodePush-CLI-Version: 2.1.9
+Accept: application/vnd.code-push.v2+json
+Authorization: Bearer tLDLTtCUSRYrO4P2BntrzPktkrgq4ksvOXqog
+X-CodePush-SDK-Version: 2.0.6
+content-type: multipart/form-data; boundary=--------------------------641068731626182805276171
+Content-Length: 931966
+Connection: close
+
+----------------------------641068731626182805276171
+Content-Disposition: form-data; name=&#34;package&#34;; filename=&#34;m6Xk8At6CX1ZRtH.zip&#34;
+Content-Type: application/zip
+
+PK..........GV............
+...www/.DS_Store..A
+.@......6.l....H...D.
+...w..:Z..W.&amp;A.......{..f.&lt;.Xun6...#...%.3&#34;.l~..=v]..}......o.8...B.!.........!..!.|(...... .E9.......q ..9.....!.....0~........~.B,.4.....d./.X0.m..
+----------------------------641068731626182805276171
+Content-Disposition: form-data; name=&#34;packageInfo&#34;
+
+{&#34;description&#34;:&#34;&#34;,&#34;isDisabled&#34;:false,&#34;isMandatory&#34;:false,&#34;rollout&#34;:100,&#34;appVersion&#34;:&#34;1.1.1&#34;}
+----------------------------641068731626182805276171--
+
+
+HTTP/1.1 200 OK
+X-DNS-Prefetch-Control: off
+X-Frame-Options: SAMEORIGIN
+Strict-Transport-Security: max-age=15552000; includeSubDomains
+X-Download-Options: noopen
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization, X-CodePush-Plugin-Version, X-CodePush-Plugin-Name, X-CodePush-SDK-Version
+Access-Control-Allow-Methods: PUT,POST,GET,PATCH,DELETE,OPTIONS
+Content-Type: text/html; charset=utf-8
+Content-Length: 18
+ETag: W/&#34;12-VQcfpGWTIWZxIW5CJEu508IDMlk&#34;
+Date: Tue, 07 Feb 2023 08:35:40 GMT
+Connection: close
+
+{&#34;msg&#34;: &#34;succeed&#34;}
+</code></pre><p><div class=post-img-view><a data-fancybox=gallery href=https://s2.loli.net/2023/02/07/TxMJ2DlaXK5v41W.png><img src=https://s2.loli.net/2023/02/07/TxMJ2DlaXK5v41W.png alt=WX20230207-164303@2x.png></a></div></p><h5 id=代码更新检查-codepushsync调用>代码更新检查 codepush.sync()调用<a hidden class=anchor aria-hidden=true href=#代码更新检查-codepushsync调用>#</a></h5><pre tabindex=0><code>http://localhost:3000/v0.1/public/codepush/update_check?deployment_key=K4TwqkWsAnkWjBIHaOijClKrMygF4ksvOXqog&amp;app_version=1.3.4&amp;package_hash=f7d21597ae65922062c71f7bac4fc7deef60c7775b82ede0f004f8a336dc73d9
+
+# 有更新返回示例(返回最新版本)
+{
+    &#34;update_info&#34;:{
+        &#34;download_url&#34;:&#34;https://aaa.oss-cn-shanghai.aliyuncs.com//FnsxIg4pOx_TAzuvnlognY0qXpsS&#34;,
+        &#34;description&#34;:&#34;&#34;,
+        &#34;is_available&#34;:true,
+        &#34;is_disabled&#34;:false,
+        &#34;target_binary_range&#34;:&#34;1.0.0&#34;,
+        &#34;label&#34;:&#34;v6&#34;,
+        &#34;package_hash&#34;:&#34;827ec4301e2fbc59e297ac05ed26465e5449492d0391219dbc6bcb6f3c2c6e44&#34;,
+        &#34;package_size&#34;:931523,
+        &#34;should_run_binary_version&#34;:false,
+        &#34;update_app_version&#34;:false,
+        &#34;is_mandatory&#34;:false
+    }
+}
+
+# hash一致，返回空的update_info
+{&#34;update_info&#34;:{&#34;download_url&#34;:&#34;&#34;,&#34;description&#34;:&#34;&#34;,&#34;is_available&#34;:false,&#34;is_disabled&#34;:true,&#34;target_binary_range&#34;:&#34;&#34;,&#34;label&#34;:&#34;&#34;,&#34;package_hash&#34;:&#34;&#34;,&#34;package_size&#34;:0,&#34;should_run_binary_version&#34;:false,&#34;update_app_version&#34;:false,&#34;is_mandatory&#34;:false}}
+</code></pre><h4 id=困扰的问题>困扰的问题<a hidden class=anchor aria-hidden=true href=#困扰的问题>#</a></h4><p>app_version不会变，除非在config.xml指定新版version，此时需要重新打apk包，热更新就失去价值了，热更新只会更新label（v2 数字累加）</p><h4 id=源码分析>源码分析<a hidden class=anchor aria-hidden=true href=#源码分析>#</a></h4><h4 id=参考>参考：<a hidden class=anchor aria-hidden=true href=#参考>#</a></h4><ol><li><a href=https://www.itguliang.com/post/bdc17ac0.html>https://www.itguliang.com/post/bdc17ac0.html</a></li><li><a href=https://github.com/lisong/code-push-server>https://github.com/lisong/code-push-server</a></li></ol></div><footer class=post-footer><ul class=post-tags><li><a href=https://xiaoqiaotq.github.io/tags/android/>Android</a></li><li><a href=https://xiaoqiaotq.github.io/tags/cordova/>Cordova</a></li></ul></footer></article></main><footer class=footer><span>&copy; 2023 <a href=https://xiaoqiaotq.github.io>xiaoqiaotq</a></span>
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script src=https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css><script src=https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js></script></body></html>
