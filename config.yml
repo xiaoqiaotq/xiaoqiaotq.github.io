@@ -4,7 +4,8 @@ title: "xiaoqiaotq"
 theme: "PaperMod"
 paginate: 5
 
-googleAnalytics: G-QXLS8S1LHD
+#googleAnalytics: G-QXLS8S1LHD
+googleAnalytics: UA-100577868-1
 
 menu:
   main:
