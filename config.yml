@@ -3,6 +3,9 @@ languageCode: "zh-cn"
 title: "xiaoqiaotq"
 theme: "PaperMod"
 paginate: 5
+
+googleAnalytics: G-QXLS8S1LHD
+
 menu:
   main:
     - name: 总览
